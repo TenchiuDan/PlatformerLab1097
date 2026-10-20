@@ -26,6 +26,11 @@ public class WalkerController : MonoBehaviour
     private bool jumpRequested;
     private bool jumpCutRequested;
     private bool isGrounded;
+
+    private static readonly int SpeedHash = Animator.StringToHash("Speed");
+    private static readonly int GroundedHash = Animator.StringToHash("isGrounded");
+
+    private Animator animator;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,6 +40,7 @@ public class WalkerController : MonoBehaviour
                   $"move={moveAction != null}");
 
         jumpAction = InputSystem.actions.FindAction("Jump");
+        animator = GetComponent<Animator>();
     }
 
 
@@ -53,6 +59,9 @@ public class WalkerController : MonoBehaviour
         {
             jumpCutRequested = true;
         }
+
+        animator.SetFloat(SpeedHash, Mathf.Abs(rb.linearVelocity.x));
+        animator.SetBool(GroundedHash, isGrounded);
     }
     void FixedUpdate()
     {
