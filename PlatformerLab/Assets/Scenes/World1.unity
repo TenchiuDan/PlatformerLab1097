@@ -272,7 +272,7 @@ MonoBehaviour:
   target: {fileID: 1928161737}
   smoothTime: 0.15
   levelLeft: -1
-  levelRight: 120
+  levelRight: 118
 --- !u!1 &620028238
 GameObject:
   m_ObjectHideFlags: 0
