@@ -16,6 +16,8 @@ public class PatrollerController : MonoBehaviour
 
     [Header("Stomp")]
     [SerializeField] private float stompBounce = 10f;
+    [SerializeField] private AudioClip stompClip;
+    
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private int direction = 1;
@@ -62,6 +64,7 @@ public class PatrollerController : MonoBehaviour
             Rigidbody2D playerBody = collision.rigidbody;
             playerBody.linearVelocity = new Vector2(playerBody.linearVelocity.x, stompBounce);
             GameManager.Instance.AddScore(100);
+            AudioManager.Instance.PlaySfx(stompClip);
             Destroy(gameObject);
         }
         else

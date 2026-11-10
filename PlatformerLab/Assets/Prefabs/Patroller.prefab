@@ -116,6 +116,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  stompBounce: 10
+  stompClip: {fileID: 8300000, guid: 461f4c9bbc8ea9d49ba53620e82854a2, type: 3}
 --- !u!50 &543949921061074951
 Rigidbody2D:
   serializedVersion: 5
